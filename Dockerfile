@@ -1,4 +1,4 @@
-FROM webrecorder/pywb:latest as static
+FROM webrecorder/pywb:develop as static
 
 FROM nginx:alpine
 
