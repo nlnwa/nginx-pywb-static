@@ -2,4 +2,4 @@ FROM webrecorder/pywb:develop as static
 
 FROM nginx:alpine
 
-COPY --from=static /pywb/pywb/static /usr/share/nginx/html/static
+COPY --from=static /pywb/static /pywb/pywb/static /usr/share/nginx/html/static/
