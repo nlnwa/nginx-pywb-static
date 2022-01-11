@@ -1,22 +1,19 @@
 FROM alpine as bootstrap
-
 WORKDIR /tmp
 RUN wget https://github.com/twbs/bootstrap/releases/download/v4.6.0/bootstrap-4.6.0-dist.zip \
     && unzip bootstrap-4.6.0-dist.zip
 
 FROM alpine as url-polyfill
-
 WORKDIR /tmp
 RUN wget https://github.com/lifaon74/url-polyfill/archive/refs/tags/1.1.8.zip \
     && unzip 1.1.8.zip && mv url-polyfill-1.1.8 url-polyfill
 
-FROM alpine as jquery
 
+FROM alpine as jquery
 WORKDIR /tmp
 RUN wget https://code.jquery.com/jquery-3.6.0.min.js
 
-
-FROM webrecorder/pywb:latest as pywb
+FROM webrecorder/pywb:2.6.3 as pywb
 
 FROM nginx:alpine
 
