@@ -13,7 +13,7 @@ FROM alpine as jquery
 WORKDIR /tmp
 RUN wget https://code.jquery.com/jquery-3.6.0.min.js
 
-FROM webrecorder/pywb:2.6.8 as pywb
+FROM webrecorder/pywb:2.7.1 as pywb
 
 FROM nginx:alpine
 
