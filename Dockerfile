@@ -22,6 +22,7 @@ FROM docker.io/nginx:1.23-alpine
 
 COPY --from=pywb /pywb/pywb/static /usr/share/nginx/html/static
 COPY --from=build /tmp/bootstrap-dist/css /usr/share/nginx/html/static/css
-COPY --from=build /tmp/bootstrap-dist/js /usr/share/nginx/html/static/js
+COPY --from=build /tmp/bootstrap-dist/js/bootstrap.bundle.min.js /usr/share/nginx/html/static/js/bootstrap.min.js
+COPY --from=build /tmp/bootstrap-dist/js/bootstrap.bundle.min.js.map /usr/share/nginx/html/static/js/bootstrap.min.js.map
 COPY --from=build /tmp/url-polyfill/url-polyfill.min.js /usr/share/nginx/html/static/js/
 COPY --from=build /tmp/jquery-latest.min.js /usr/share/nginx/html/static/js/
