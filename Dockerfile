@@ -13,7 +13,7 @@ ADD https://github.com/lifaon74/url-polyfill/archive/refs/tags/${URL_POLYFILL_VE
 RUN unzip ${URL_POLYFILL_VERSION}.zip && mv url-polyfill-${URL_POLYFILL_VERSION} url-polyfill
 
 ADD https://code.jquery.com/jquery-${JQUERY_VERSION}.min.js jquery-latest.min.js
-
+RUN chmod 644 jquery-latest.min.js
 
 FROM docker.io/webrecorder/pywb:2.7.2 as pywb
 
