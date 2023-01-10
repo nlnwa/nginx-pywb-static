@@ -1,4 +1,4 @@
-FROM docker.io/webrecorder/pywb:2.7.2 as pywb
+FROM docker.io/webrecorder/pywb:2.6.8 as pywb
 
 FROM docker.io/nginx:1.23-alpine
 
