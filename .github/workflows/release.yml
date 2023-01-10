@@ -14,13 +14,18 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        version: [2.6.8, 2.6.9, 2.7.2]
     steps:
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          flavor: |
+            latest=false
+            suffix=-pywb-${{ matrix.version }}
           tags: |
             type=semver,pattern={{version}}
             type=ref,event=branch
@@ -39,3 +44,5 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+          build-args: |
+            PYWB_VERSION=${{ matrix.version }}
