@@ -1,4 +1,6 @@
-FROM docker.io/webrecorder/pywb:2.6.8 as pywb
+ARG PYWB_VERSION=2.7.2
+
+FROM docker.io/webrecorder/pywb:$PYWB_VERSION as pywb
 
 FROM docker.io/nginx:1.23-alpine
 
