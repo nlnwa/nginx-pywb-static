@@ -1,4 +1,4 @@
-ARG PYWB_VERSION=2.7.2
+ARG PYWB_VERSION=2.7.3
 
 FROM docker.io/webrecorder/pywb:$PYWB_VERSION as pywb
 
