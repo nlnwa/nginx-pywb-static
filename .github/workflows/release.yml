@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     tags:
-      - v*
+      - "v[0-9]+.[0-9]+.[0-9]+.*"
 
 env:
   REGISTRY: ghcr.io
@@ -12,9 +12,6 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        version: [2.6.7, 2.6.8, 2.6.9, 2.7.2, 2.7.3]
     steps:
       - name: Extract metadata (tags, labels) for Docker
         id: meta
@@ -42,5 +39,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          build-args: |
-            PYWB_VERSION=${{ matrix.version }}
